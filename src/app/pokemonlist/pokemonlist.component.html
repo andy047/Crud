@@ -1,0 +1,45 @@
+
+<ul *ngFor="let pokemon of pokemones ; index as i">
+    <li>{{pokemon.name}}</li>
+    <li>{{pokemon.url}}</li>
+    <li><button type="button" class="btn btn-primary" (click)="getPokemon(pokemon.url)" data-toggle="modal" data-target="#exampleModal">
+      ver pokemon
+    </button></li>
+  </ul>
+
+  
+  
+  <!-- Modal -->
+  <div class="modal fade" id="exampleModal" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div *ngIf="pokemonSeleccionado!=null" class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">pokemon {{'x'}}</h5>
+          
+        </div>
+        <div class="modal-body">
+          <div class="row">
+            <div class="col-3">
+              <img [src]="pokemonSeleccionado.foto" alt="">
+            </div>
+            <div class="col-3">
+              <label for="name">
+                <input disabled type="text" class="form-control" [value]="pokemonSeleccionado.nombre">
+              </label>
+            </div>
+          </div>
+          <div class="row">
+            <div class="col-6">
+              <label for="habilidades">Habilidades</label>
+              <ul id="habilidades">
+                <li *ngFor="let habilidad of pokemonSeleccionado.habilidades">{{habilidad}}</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+        <div class="modal-footer">
+          <button (click)="closeModal()" type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        </div>
+      </div>
+    </div>
+  </div>
