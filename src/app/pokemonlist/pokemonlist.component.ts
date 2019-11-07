@@ -30,10 +30,11 @@ export class PokemonlistComponent implements OnInit {
   }
 
   getPokemon(url:string){
-    debugger;
+    //debugger;
+    //hola mundoooooo
     this.http.get(url)
     .subscribe((data:any) =>{
-      debugger;
+      //debugger;
       this.pokemonSeleccionado = new InfoPokemon(
         data.name,
         data.height,
