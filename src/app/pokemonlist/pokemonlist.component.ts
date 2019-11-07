@@ -28,6 +28,7 @@ export class PokemonlistComponent implements OnInit {
   closeModal(){
     this.pokemonSeleccionado = null;
   }
+  //cambio de prueba
 
   getPokemon(url:string){
     //debugger;
